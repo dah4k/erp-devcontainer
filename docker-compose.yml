@@ -21,6 +21,7 @@ services:
   db:
     image: mariadb:lts
     restart: unless-stopped
+    user: mysql
     volumes:
       - db_data:/var/lib/mysql
     ports:
