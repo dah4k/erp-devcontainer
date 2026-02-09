@@ -6,6 +6,9 @@ services:
   app:
     image: snipe/snipe-it:v8.3.7
     restart: unless-stopped
+    #user: www-data
+    #user: ubuntu
+    #user: "docker:root"
     volumes:
       - storage:/var/lib/snipeit
     ports:
