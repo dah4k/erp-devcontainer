@@ -9,6 +9,9 @@ services:
     #user: www-data
     #user: ubuntu
     #user: "docker:root"
+    networks:
+      - frontend
+      - backend
     volumes:
       - storage:/var/lib/snipeit
     ports:
@@ -25,6 +28,8 @@ services:
     image: mariadb:lts
     restart: unless-stopped
     user: mysql
+    networks:
+      - backend
     volumes:
       - db_data:/var/lib/mysql
     ports:
@@ -40,3 +45,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+
+# https://docs.docker.com/compose/how-tos/networking/
+networks:
+  frontend:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
+  backend:
+    internal: true
