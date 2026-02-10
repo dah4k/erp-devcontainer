@@ -4,6 +4,7 @@ volumes:
 
 services:
   app:
+    container_name: snipeit-app
     image: snipe/snipe-it:v8.3.7
     restart: unless-stopped
     #user: www-data
@@ -25,6 +26,7 @@ services:
 
   # https://mariadb.com/docs/server/server-management/automated-mariadb-deployment-and-administration/docker-and-mariadb/using-healthcheck-sh
   db:
+    container_name: snipeit-db
     image: mariadb:lts
     restart: unless-stopped
     user: mysql
