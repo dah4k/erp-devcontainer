@@ -1,3 +1,6 @@
+# Copyright 2026 dah4k
+# SPDX-License-Identifier: EPL-2.0
+---
 volumes:
   db_data:
   storage:
