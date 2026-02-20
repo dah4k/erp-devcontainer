@@ -37,6 +37,7 @@ services:
       - backend
     volumes:
       - db_data:/var/lib/mysql
+      - ./files/all-db-backup.sql:/docker-entrypoint-initdb.d/init.sql:Z
     ports:
       - "3306:3306"
     environment:
